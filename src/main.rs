@@ -1,7 +1,9 @@
-use unionfind::*;
 
-pub mod unionfind;
+pub mod patterns;
 
 fn main() {
-    println!("Hello, world!");
+
+    patterns::parse("15 ~~> 14
+14 ~~> 13");
+
 }

@@ -1,0 +1,14 @@
+WHITESPACE = _{ " " | "\t" }
+
+int = @{ ASCII_DIGIT+ }
+var = @{ "$" ~ ASCII_ALPHA+ }
+
+kind = _{ ASCII_ALPHA+ }
+atom = _{ int | var }
+
+expr = { atom | "(" ~ kind ~ expr* ~ ")" }
+
+pattern = { expr ~ "~~>" ~ expr }
+patlist = { SOI ~ NEWLINE* ~ pattern ~ (NEWLINE ~ pattern )* ~ NEWLINE* ~ EOI }
+
+
